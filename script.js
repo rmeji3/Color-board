@@ -75,7 +75,7 @@ var colorWheel = new iro.ColorPicker("#colorWheel", {
     const screenWidth = window.innerWidth;
     let colorWheelSize;
     if (screenWidth <= 500) { 
-        colorWheelSize = screenWidth - 290; 
+        colorWheelSize = screenWidth - 300; 
     } else {
         colorWheelSize = 120; 
     }
