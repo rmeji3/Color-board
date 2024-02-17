@@ -1,46 +1,72 @@
-let isMouseDown = false; // Track mouse state
+let isMouseDown = false;
 var colorToChange = 'rgb(255, 0, 0)'
-// Set isMouseDown to true when mouse is pressed
+var pressedBrush = true;
+var pressedEraser = false;
+
 document.addEventListener('mousedown', function() {
-  isMouseDown = true;
-});
-
-// Set isMouseDown to false when mouse is released
-document.addEventListener('mouseup', function() {
-  isMouseDown = false;
-});
-
-function attachEventListenersToCells() {
-    // Add event listener to each color-cell for mouseenter
-    document.querySelectorAll('.color-cell').forEach(function(cell) {
-      cell.addEventListener('mouseenter', function() {
-        if (isMouseDown && pressedBrush) {
-          this.style.backgroundColor = colorToChange;
-        } else if (isMouseDown && pressedEraser) {
-          this.style.backgroundColor = 'white';
-        }
-        
-      });
-      cell.addEventListener('dragstart', function(e) {
-        e.preventDefault(); // Prevent the drag start
-      });
-    });
+    isMouseDown = true;
+  });
   
-    // Add event listener to each color-cell for click
-    document.querySelectorAll('.color-cell').forEach(function(cell) {
-        cell.addEventListener('click', function() {
-        if (pressedBrush) {
-            this.style.backgroundColor = colorToChange;
-        } else if (pressedEraser) {
-            this.style.backgroundColor = 'white';
-        }
-        });
-    });
-}
+  document.addEventListener('mouseup', function() {
+    isMouseDown = false;
+  });
   
+  document.addEventListener('touchstart', function(e) {
+    isTouching = true;
+    if (e.target.classList.contains('color-cell')) {
+      applyColor(e.target);
+    }
+  }, { passive: false });
+  
+  document.addEventListener('touchend', function() {
+    isTouching = false;
+  });
+  
+  document.addEventListener('touchcancel', function() {
+    isTouching = false;
+  });
+  
+  function attachEventListenersToCells() {
+      // Existing mouse event handling
+      document.querySelectorAll('.color-cell').forEach(function(cell) {
+          cell.addEventListener('mouseenter', function() {
+              if (isMouseDown) {
+                  applyColor(this);
+              }
+          });
+          cell.addEventListener('click', function() {
+              applyColor(this);
+          });
+          cell.addEventListener('dragstart', function(e) {
+              e.preventDefault(); 
+          });
+  
+          // New touchmove event handling
+          cell.addEventListener('touchmove', function(e) {
+              e.preventDefault(); 
+              if (isTouching) {
+
+                  let touch = e.touches[0];
+                  let target = document.elementFromPoint(touch.clientX, touch.clientY);
+                  if (target && target.classList.contains('color-cell')) {
+                      applyColor(target);
+                  }
+              }
+          }, { passive: false });
+      });
+  }
+  
+  function applyColor(cell) {
+      if (pressedBrush) {
+          cell.style.backgroundColor = colorToChange;
+      } else if (pressedEraser) {
+          cell.style.backgroundColor = 'white';
+      }
+  }
+  
+  attachEventListenersToCells();
 
 var colorWheel = new iro.ColorPicker("#colorWheel", {
-    // ColorPicker options
     width: 100,
     color: "rgb(255, 0, 0)",
     borderWidth: 1,
@@ -48,18 +74,17 @@ var colorWheel = new iro.ColorPicker("#colorWheel", {
 });
     const screenWidth = window.innerWidth;
     let colorWheelSize;
-    if (screenWidth <= 500) { // You can adjust this value based on your needs
-        colorWheelSize = screenWidth - 300; // Subtract some pixels for padding/margin
+    if (screenWidth <= 500) { 
+        colorWheelSize = screenWidth - 300; 
     } else {
-        colorWheelSize = 120; // Default size for non-mobile devices
+        colorWheelSize = 120; 
     }
     colorWheel.resize(colorWheelSize);
     colorWheel.on('color:change', function(color) {
     colorToChange = color.hexString ;
 });
   
-  var pressedBrush = true;
-  var pressedEraser = false;
+
 
   document.getElementById('brush').addEventListener('click',function() {
     if(pressedEraser)
