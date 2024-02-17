@@ -2,10 +2,10 @@
 @media(max-width: 500px){
     body{
         display: grid;
-        grid-template-rows: 10vh 85vh 0vh;
+        grid-template-rows: 10vh 80vh;
         margin: 0;
         background-color: rgb(245, 245, 245);
-        overflow-x: hidden;
+        overflow: hidden;
     }
     .middle{
         display: grid;
