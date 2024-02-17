@@ -1,0 +1,272 @@
+
+@media(max-width: 500px){
+    body{
+        display: grid;
+        grid-template-rows: 10vh 85vh 0vh;
+        margin: 0;
+        background-color: rgb(245, 245, 245);
+        overflow-x: hidden;
+    }
+    .middle{
+        display: grid;
+        grid-template-rows: 0vh 20vh 50vh 0vh;
+    }
+    .center{
+        background-color: white;
+        box-shadow: 4px 4px 8px 0px rgb(194, 194, 194);
+        display: grid;
+        grid-row: repeat(16,auto);
+        grid-template-columns: repeat(16,auto);
+        z-index: 2;
+        position: relative;
+    }
+    .center > *:hover{
+        outline: rgb(226, 226, 226) 1px solid;
+        
+    }
+    .top{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 60px;
+        font-family: system-ui;
+        font-weight: bolder;
+        background: linear-gradient(100deg, rgb(236, 29, 255), rgb(255, 238, 0));
+    
+        /* Ensure the background is only applied to the text (not the entire element) */
+        -webkit-background-clip: text;
+        background-clip: text;
+      
+        /* Change the text color to transparent so the gradient shows through */
+        color: transparent;
+    }
+    .options{
+        display: grid;
+        grid-template-columns: 30% 30% 20% 20%;
+        background-color: white;
+        border-radius: 20px 0px 0px 20px;
+    }
+    .text{
+        display: flex;
+        justify-content: center;
+        font-family: system-ui;
+        font-weight: bolder;
+        font-size: 20px;
+        text-align: center;   
+        background: linear-gradient(100deg, rgb(29, 90, 255), rgb(115, 255, 0));
+    
+        /* Ensure the background is only applied to the text (not the entire element) */
+        -webkit-background-clip: text;
+        background-clip: text;
+      
+        /* Change the text color to transparent so the gradient shows through */
+        color: transparent;
+    }
+    #colorWheel{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .tools{
+        display: grid;
+        grid-template-rows: 20% 80%;
+    }
+    .tools-container{
+        display: grid;
+        grid-template-columns: 50% 50%;
+    }
+    .brush{
+        height : 40%;
+        width: 80%;
+        background-color: red;
+        border: rgb(184, 184, 184) 1px solid;
+        margin: auto 2px auto auto;
+        border-radius: 20px;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 10px;
+    }
+    .eraser{
+        height : 40%;
+        width: 80%;
+        background-color: rgb(184, 184, 184);
+        margin: auto  auto auto 2px;
+        border-radius: 20px;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 10px;
+    }
+    .sizes{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    
+    }
+    
+    .sizes > * {
+        background-color:  rgb(184, 184, 184);
+        border-radius: 10px;
+        padding: 2px;
+        font-family: system-ui;
+        cursor: pointer;
+    }
+    .s16x16{
+        background-color:  red;
+    }
+    .options > :nth-child(4){
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .clear-button{
+        height: 25%;
+        background-color: rgb(184, 184, 184);
+        width: 80%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: system-ui;
+        font-size: 20px;
+        border-radius: 20px;
+    }
+}
+@media (min-width: 992px) {
+    body{
+        display: grid;
+        grid-template-rows: 20vh 60vh 20vh;
+        margin: 0;
+        background-color: rgb(226, 226, 226);
+    }
+    .middle{
+        display: grid;
+        grid-template-columns: 25vw 10vw 30vw 35vw;
+    }
+    .center{
+        background-color: white;
+        box-shadow: 4px 4px 8px 0px rgb(184, 184, 184);
+        display: grid;
+        grid-row: repeat(16,auto);
+        grid-template-columns: repeat(16,auto);
+        z-index: 2;
+        position: relative;
+    }
+    .center > *:hover{
+        outline: rgb(226, 226, 226) 1px solid;
+        
+    }
+    .top{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 140px;
+        font-family: system-ui;
+        font-weight: bolder;
+        background: linear-gradient(100deg, rgb(236, 29, 255), rgb(255, 238, 0));
+    
+        /* Ensure the background is only applied to the text (not the entire element) */
+        -webkit-background-clip: text;
+        background-clip: text;
+      
+        /* Change the text color to transparent so the gradient shows through */
+        color: transparent;
+    }
+    .options{
+        display: grid;
+        grid-template-rows: 40% 30% 20% 10%;
+        background-color: white;
+        border-radius: 20px 0px 0px 20px;
+    }
+    .text{
+        display: flex;
+        justify-content: center;
+        font-family: system-ui;
+        font-weight: bolder;
+        font-size: 20px;
+        background: linear-gradient(100deg, rgb(29, 90, 255), rgb(115, 255, 0));
+    
+        /* Ensure the background is only applied to the text (not the entire element) */
+        -webkit-background-clip: text;
+        background-clip: text;
+      
+        /* Change the text color to transparent so the gradient shows through */
+        color: transparent;
+    }
+    #colorWheel{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .tools{
+        display: grid;
+        grid-template-rows: 20% 80%;
+    }
+    .tools-container{
+        display: grid;
+        grid-template-columns: 50% 50%;
+    }
+    .brush{
+        height : 40%;
+        width: 80%;
+        background-color: red;
+        border: rgb(184, 184, 184) 1px solid;
+        margin: auto 2px auto auto;
+        border-radius: 20px;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 10px;
+    }
+    .eraser{
+        height : 40%;
+        width: 80%;
+        background-color: rgb(184, 184, 184);
+        margin: auto  auto auto 2px;
+        border-radius: 20px;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 10px;
+    }
+    .sizes{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    
+    }
+    
+    .sizes > * {
+        background-color:  rgb(184, 184, 184);
+        border-radius: 10px;
+        padding: 2px;
+        font-family: system-ui;
+        cursor: pointer;
+    }
+    .s16x16{
+        background-color:  red;
+    }
+    .options > :nth-child(4){
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .clear-button{
+        height: 60%;
+        background-color: rgb(184, 184, 184);
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: system-ui;
+        font-size: 20px;
+        border-radius: 20px;
+    }
+}
+
