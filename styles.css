@@ -9,7 +9,7 @@
     }
     .middle{
         display: grid;
-        grid-template-rows: 0vh 20vh 50vh 0vh;
+        grid-template-rows: 0vh 25vh 50vh 0vh;
     }
     .center{
         background-color: white;
